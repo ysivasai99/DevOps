@@ -1,3 +1,24 @@
 Hi Welcome to DevOps
 
 SCP or VCS tool GIT
+#########################################
+Git ==> SCM tool like it was distibuted tool / avoid the falut tolorence
+
+Git ==> git workflow 
+
+1=> Remote report repo GitHub we are placing the our project code
+2=> Clone the code remort repo to local repo
+3=> start the code implementaion
+4=>Working area ==> Stageing Area ==> Local repo
+5=> we can find through {git status}
+6=>working area(Red clour)==> Stageing are (green colour)==> Loacal repo (nothing)
+
+Git ==> commands
+Push ==> local changes pushing to remote repo
+Pull==> Pulling the remote repo to local repo
+Fech==>
+Marge==> merge use to commbine the child branch to master branch
+
+git diff==> user compare the code
+git reset 
+
