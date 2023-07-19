@@ -29,6 +29,18 @@
     </dependency>
   </dependencies>
 
+  <distributionManagement>
+		 <snapshotRepository>
+		    <id>nexusRepo</id>
+		    <url>http://52.199.79.224:8081/repository/sample-snapshot/</url>
+		 </snapshotRepository>
+		
+		 <repository>
+		    <id>nexusRepo</id>
+		    <url>http://52.199.79.224:8081/repository/sample-release/</url>
+		 </repository>
+  </distributionManagement>
+
   <build>
     <finalName>webpage_feture</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
