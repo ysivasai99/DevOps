@@ -12,7 +12,7 @@ pipeline{
 	}
 	stage("Maven Build"){
 	  steps{
-	    sh "mvn clean package"
+	    sh "mvn -f "/var/lib/jenkins/workspace/Git_Maven_Pipeline_Job/Maven/webpage_feture/pom.xm" clean package"
 	  }
 	}
   }
