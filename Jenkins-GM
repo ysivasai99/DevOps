@@ -12,6 +12,7 @@ pipeline{
 	}
 	stage("Maven Build"){
 	  steps{
+            cd "/var/lib/jenkins/workspace/Git_Maven_Pipeline_Job/Maven/webpage_feture"
 	    sh "mvn clean package"
 	  }
 	}
