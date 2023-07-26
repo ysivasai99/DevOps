@@ -4,15 +4,17 @@ pipeline{
   environment{
     PATH= "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven/bin:$PATH"
 	
+  }
   stages{
-    stage("Git Clone"){
+    stage("git clone"){
 	  steps{
 	    git branch: 'main', credentialsId: '6d8406ac-0743-45fa-9688-9a1a14795ced', url: 'https://github.com/aakumar07/DevOps.git'
 	  }
 	}
+	
 	stage("Maven Build"){
 	  steps{
-	    sh "mvn -f /var/lib/jenkins/workspace/Pipeline_Job_GMSN/Maven/webpage_feture/pom.xml clean sonar:sonar package"
+	    sh "mvn -f /var/lib/jenkins/workspace/Pipeline_Job_GMS/Maven/webpage_feture/pom.xml clean sonar:sonar package"
 	  }
 	}
 	stage("Nexus Artifact Uplod"){
@@ -34,6 +36,5 @@ pipeline{
 		version: 'snap'
 	  }
 	}
+   }
   }
- }
- }
