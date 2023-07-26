@@ -23,7 +23,7 @@ pipeline{
 		 [
 		   artifactId: 'webpage_feture', 
 		   classifier: '', 
-		   file: 'target/webpage_feture.war', 
+		   file: '/var/lib/jenkins/workspace/Pipeline_job_GMSN/Maven/webpage_feture/target/webpage_feture.war', 
 		   type: 'war'
 		 ]
 		], 
