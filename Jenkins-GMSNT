@@ -40,7 +40,7 @@ pipeline{
 	  steps{
 	    sshagent(['tomcat']) {
 		sh ""
-		     scp -o /var/lib/jenkins/workspace/Pipeline_Job_GMSNT/Maven/webpage_feture/target/webpage_feture.war  ec2-user@13.231.122.215:/opt/apache-tomcat-9.0.78/webapps/
+		     sudo scp -o /var/lib/jenkins/workspace/Pipeline_Job_GMSNT/Maven/webpage_feture/target/webpage_feture.war  ec2-user@13.231.122.215:/opt/apache-tomcat-9.0.78/webapps/
 		" "
 	   }
 	  }
