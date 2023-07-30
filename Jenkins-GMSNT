@@ -1,0 +1,49 @@
+pipeline{
+  agent any
+  
+  environment{
+    PATH= "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven/bin:$PATH"
+	
+  }
+  stages{
+    stage("git clone"){
+	  steps{
+	    git branch: 'main', credentialsId: '6d8406ac-0743-45fa-9688-9a1a14795ced', url: 'https://github.com/aakumar07/DevOps.git'
+	  }
+	}
+	
+	stage("Maven Build"){
+	  steps{
+	    sh "mvn -f /var/lib/jenkins/workspace/Pipeline_Job_GMSNT/Maven/webpage_feture/pom.xml clean sonar:sonar package"
+	  }
+	}
+	stage("Nexus Artifact Uplod"){
+	  steps{
+	    nexusArtifactUploader artifacts: [
+		 [
+		   artifactId: 'webpage_feture', 
+		   classifier: '', 
+		   file: '/var/lib/jenkins/workspace/Pipeline_job_GMSN/Maven/webpage_feture/target/webpage_feture.war', 
+		   type: 'war'
+		 ]
+		], 
+		credentialsId: 'nexus3', 
+		groupId: 'sample_project', 
+		nexusUrl: '54.64.49.78:8081', 
+		nexusVersion: 'nexus3', 
+		protocol: 'http', 
+		repository: 'sample-release', 
+		version: 'snap'
+	  }
+	}
+	stage("Deploy to Tomcat"){
+	  steps{
+	    sshagent(['tomcat']) {
+		sh ""
+		     scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Pipeline_job_GMSN/Maven/webpage_feture/target/webpage_feture.war  ec2-user@13.231.122.215:/home/ec2-user/opt/apache-tomcat-9.0.78/webapps/
+		" "
+	   }
+	  }
+	 }
+	}
+   }
