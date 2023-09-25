@@ -1,4 +1,4 @@
-pipeline{
+sonarpipeline{
   agent any
  
   environment{
@@ -14,7 +14,7 @@ pipeline{
 
 stage("Maven Build"){
  steps{
-   sh "mvn -f /var/lib/jenkins/workspace/Pipeline/Maven/webpage_feture/pom.xml clean package"
+   sh "mvn -f /var/lib/jenkins/workspace/Pipeline/Maven/webpage_feture/pom.xml clean sonar:sonar package"
  }
 }
   }
