@@ -14,7 +14,7 @@ pipeline{
 
 stage("Maven Build"){
  steps{
-   sh "mvn -f /var/lib/jenkins/workspace/Pipeline/Maven/webpage_feture/pom.xml clean sonar:sonar package"
+   sh "mvn -f /var/lib/jenkins/workspace/Pipeline/Maven/webpage_feture/pom.xml clean package"
  }
 }
   }
