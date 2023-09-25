@@ -12,7 +12,7 @@ pipeline {
         }
         stage("Maven Build & code scan") {
             steps{
-                sh "mvn -f var/lib/jenkins/workspace/pipeline/maven/webpage_feture/pom.xml clean sonar:sonar package"
+                sh "mvn -f /var/lib/jenkins/workspace/pipeline/maven/webpage_feture/pom.xml clean sonar:sonar package"
             }
         }
     }
