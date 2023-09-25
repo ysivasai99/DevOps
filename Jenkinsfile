@@ -1,4 +1,4 @@
-sonarpipeline{
+pipeline{
   agent any
  
   environment{
