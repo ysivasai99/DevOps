@@ -18,4 +18,9 @@ stage("Maven Build and sonar"){
  }
 }
   }
+    stage("Nexus uploader"){
+      steps{
+          nexusArtifactUploader artifacts: [[artifactId: 'webpage_feture', classifier: '', file: '/var/lib/jenkins/workspace/Pipeline/Maven/webpage_feture/target/webpage_feture.war', type: 'war']], credentialsId: 'nexus3', groupId: 'sample_project', nexusUrl: '100.25.198.184:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Maven_Rel', version: 'snap'
+      }
+  }
  }
