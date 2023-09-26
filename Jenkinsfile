@@ -24,3 +24,4 @@ stage("Maven Build and sonar"){
       }
   }
  }
+}
