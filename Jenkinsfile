@@ -2,7 +2,7 @@ pipeline{
   agent any
 
     environment{
-    PATH= "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven/bin:$PATH"
+    PATH= "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven/bin:$PATH"
 
   }
  
