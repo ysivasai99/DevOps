@@ -1,5 +1,10 @@
 pipeline{
   agent any
+
+    environment{
+    PATH= "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven/bin:$PATH"
+
+  }
  
   stages{
     stage("git clone"){
