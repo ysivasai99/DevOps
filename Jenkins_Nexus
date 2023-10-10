@@ -3,5 +3,13 @@ pipeline{
 
     environment{
     PATH= "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven/bin:$PATH"
-
   }
+stages{
+  stage("Nexus"){
+    steps{
+      nexusArtifactUploader artifacts: [[artifactId: 'webpage_feture', classifier: '', file: '/var/lib/jenkins/workspace/Nexus/Maven/webpage_feture/target/webpage_feture.war', type: 'war']], credentialsId: '239d4862-6e5b-432e-99ec-e2fceeaccf27', groupId: 'sample_project', nexusUrl: '34.209.78.114', nexusVersion: 'nexus3', protocol: 'http', repository: 'nexusRepo', version: 'snap'
+}
+}
+}
+}
+
