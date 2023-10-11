@@ -1,25 +1,17 @@
 pipeline{
   agent any
     environment{
-    PATH= "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven/bin:$PATH"
+    PATH= "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven/bin:$PATH"
   }
 stages{
-  stage("Tomcat"){
+  stage("Git"){
+    steps{
+      git branch: 'main', credentialsId: '239d4862-6e5b-432e-99ec-e2fceeaccf27', url: 'https://github.com/ysivasai99/DevOps.git'
+}
+}
+stage("Tomcat"){
     steps{
       sshagent(['c1c88287-620e-45fb-bb94-6589b37fe8d5']) {
-}
-}
-}
-pipeline{
-  agent any
-    environment{
-    PATH= "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven/bin:$PATH"
-  }
-stages{
-  stage("Tomcat"){
-    steps{
-      sshagent(['c1c88287-620e-45fb-bb94-6589b37fe8d5']) {
-}
 }
 }
 stage("Deploy to Tomcat"){
@@ -29,7 +21,6 @@ stage("Deploy to Tomcat"){
 	   }
 	  }
 	 }
-}
 }
 }
 }
