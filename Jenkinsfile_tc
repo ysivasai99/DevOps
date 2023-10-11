@@ -11,7 +11,6 @@ stages{
 }
 }
 
-stages{
   stage("Tomcat"){
     steps{
       sshagent(['2374b515-dee6-4861-bcd6-c9c13f69d915']) {
@@ -27,5 +26,4 @@ stage("Deploy to Tomcat"){
 	 }
 }
 }
-}
-}
+
