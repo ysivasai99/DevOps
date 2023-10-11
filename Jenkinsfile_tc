@@ -1,26 +1,31 @@
 pipeline{
   agent any
     environment{
-    PATH= "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven/bin:$PATH"
+    PATH= "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven/bin:$PATH"
   }
 stages{
-  stage("Git"){
-    steps{
-      git branch: 'main', credentialsId: '239d4862-6e5b-432e-99ec-e2fceeaccf27', url: 'https://github.com/ysivasai99/DevOps.git'
-}
-}
-stage("Tomcat"){
+  stage("Tomcat"){
     steps{
       sshagent(['c1c88287-620e-45fb-bb94-6589b37fe8d5']) {
+}
+}
+}
+
+stages{
+  stage("Tomcat"){
+    steps{
+      sshagent(['2374b515-dee6-4861-bcd6-c9c13f69d915']) {
 }
 }
 }
 stage("Deploy to Tomcat"){
 	  steps{
 	    sshagent(['Tomcat-Server-Agent']){
-		sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Tomcat/Maven/webpage_feture/target/webpage_feture.war  ec2-user@34.222.46.231:/opt/apache-tomcat-9.0.81/webapps/'
+		sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Tomcat/Maven/webpage_feture/target/webpage_feture.war  ec2-user@13.231.122.215:/opt/apache-tomcat-9.0.78/webapps/'
 	   }
 	  }
 	 }
+}
+}
 }
 }
