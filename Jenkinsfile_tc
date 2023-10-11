@@ -10,14 +10,13 @@ stages{
 }
 }
 }
-
   stage("Tomcat"){
     steps{
       sshagent(['2374b515-dee6-4861-bcd6-c9c13f69d915']) {
 }
 }
 }
-stage("Deploy to Tomcat"){
+   stage("Deploy to Tomcat"){
 	  steps{
 	    sshagent(['Tomcat-Server-Agent']){
 		sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Tomcat/Maven/webpage_feture/target/webpage_feture.war  ec2-user@13.231.122.215:/opt/apache-tomcat-9.0.78/webapps/'
