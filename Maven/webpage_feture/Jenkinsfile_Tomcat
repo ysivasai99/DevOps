@@ -6,6 +6,8 @@ pipeline{
 stages{
   stage("Tomcat"){
     steps{
+      sshagent(['c1c88287-620e-45fb-bb94-6589b37fe8d5']) {
+}
 }
 }
 }
