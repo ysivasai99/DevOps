@@ -14,6 +14,7 @@ stage("Tomcat"){
       sshagent(['c1c88287-620e-45fb-bb94-6589b37fe8d5']) {
 }
 }
+}
 stage("Deploy to Tomcat"){
 	  steps{
 	    sshagent(['Tomcat-Server-Agent']){
@@ -21,6 +22,5 @@ stage("Deploy to Tomcat"){
 	   }
 	  }
 	 }
-}
 }
 }
