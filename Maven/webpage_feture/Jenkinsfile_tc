@@ -17,7 +17,7 @@ stage("Tomcat"){
 }
 stage("Deploy to Tomcat"){
 	  steps{
-	    sshagent(['Tomcat-Server-Agent']){
+	    sshagent(['Tomcat_server']){
 		sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Tomcat/Maven/webpage_feture/target/webpage_feture.war  ec2-user@34.222.46.231:/opt/apache-tomcat-9.0.81/webapps'
 	   }
 	  }
