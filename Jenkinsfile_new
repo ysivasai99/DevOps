@@ -1,0 +1,11 @@
+pipeline{
+  agent any
+stages{
+  stage("Git"){
+    steps{
+      git branch: 'main', credentialsId: '239d4862-6e5b-432e-99ec-e2fceeaccf27', url: 'https://github.com/ysivasai99/DevOps.git'
+}
+}
+
+}
+}
