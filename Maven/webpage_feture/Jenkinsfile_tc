@@ -9,12 +9,6 @@ stages{
       git branch: 'main', credentialsId: '239d4862-6e5b-432e-99ec-e2fceeaccf27', url: 'https://github.com/ysivasai99/DevOps.git'
 }
 }
-stage("Tomcat"){
-    steps{
-      sshagent(['c1c88287-620e-45fb-bb94-6589b37fe8d5']) {
-}
-}
-}
 stage("Deploy to Tomcat"){
 	  steps{
 	    sshagent(['Tomcat_server']){
