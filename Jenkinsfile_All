@@ -11,7 +11,7 @@ pipeline{
 		}
 	  stage("Maven build"){
 	      steps{
-		     sh "mvn -f /var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/target/webpage_feture.war clean"
+		     sh "mvn -f /var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/target/webpage_feture.war package"
 			 }
 			 }
 	}
