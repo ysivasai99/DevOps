@@ -32,12 +32,12 @@
   <distributionManagement>
 		 <snapshotRepository>
 		    <id>nexusRepo</id>
-		    <url>http://34.209.78.114/repository/nexus_snap_new/</url>
+		    <url>http://54.212.0.252/repository/nexus_snap_new/</url>
 		 </snapshotRepository>
 		
 		 <repository>
 		    <id>nexusRepo</id>
-		    <url>http://34.209.78.114/repository/nexus_rel_new/</url>
+		    <url>http://54.212.0.252/repository/nexus_rel_new/</url>
 		 </repository>
   </distributionManagement>
 
