@@ -9,11 +9,16 @@ pipeline{
 		      git branch: 'main', credentialsId: '239d4862-6e5b-432e-99ec-e2fceeaccf27', url: 'https://github.com/ysivasai99/DevOps.git'
 			  }
 		}
-	  stage("Maven build & sonar analysis"){
+	  stage("Maven build"){
 	      steps{
-		     sh "mvn -f /var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/pom.xml clean sonar:sonar package"
+		     sh "mvn -f /var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/target/webpage_feture.war clean package"
 			 }
 			 }
+	  stage("Nexus Artifacts upload"){
+	      steps{
+		      nexusArtifactUploader artifacts: [[artifactId: 'webpage_feture', classifier: '', file: '/var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/target/webpage_feture.war', type: 'war']], credentialsId: 'Nexus3', groupId: 'sample_project', nexusUrl: '54.212.0.252', nexusVersion: 'nexus3', protocol: 'http', repository: 'nexus_rel_new', version: 'snap'
+			  }
+			  }
 	}
 }
 		
