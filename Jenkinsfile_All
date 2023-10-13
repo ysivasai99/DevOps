@@ -16,8 +16,7 @@ pipeline{
 			 }
 	  stage("Nexus Artifacts upload"){
 	      steps{
-		      nexusArtifactUploader artifacts: [[artifactId: 'webpage_feture', classifier: '', file: '/var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/target/webpage_feture.war', type: 'war']], credentialsId: 'Nexus3', groupId: 'sample_project', nexusUrl: '54.212.0.252:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'nexus_rel_new', version: 'snap'
-			  }
+                   nexusArtifactUploader artifacts: [[artifactId: 'webpage_feture', classifier: '', file: '/var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/target/webpage_feture.war', type: 'war']], credentialsId: 'c09c28f2-d765-40ed-a993-0e7c14c5f812', groupId: 'sample_project', nexusUrl: '54.212.0.252:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'nexus_rel_new', version: 'snap'			  }
 			  }
 	}
 }
