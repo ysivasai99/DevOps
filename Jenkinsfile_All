@@ -11,7 +11,7 @@ pipeline{
 		}
 	  stage("Maven build"){
 	      steps{
-		     sh "mvn -f /var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/target/webpage_feture.war clean package"
+		     sh "mvn -f /var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/pom.xml clean sonar:sonar package"
 			 }
 			 }
 	  stage("Nexus Artifacts upload"){
