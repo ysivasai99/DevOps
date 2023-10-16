@@ -9,6 +9,11 @@ stages{
             git branch: 'main', credentialsId: '55b225a2-09f5-4d71-91a7-f7c3de22fa61', url: 'https://github.com/ysivasai99/DevOps.git'
 }
 }
+     stage("Maven build"){
+         steps{
+             sh 'mvn -f /var/lib/jenkins/workspace/MSNT_Pipeline/Maven/webpage_feture/pom.xml clean package'
+}
+}
 }
 }
 
