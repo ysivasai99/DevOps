@@ -16,8 +16,30 @@ pipeline{
 			 }
 	  stage("Nexus Artifacts upload"){
 	      steps{
-                   nexusArtifactUploader artifacts: [[artifactId: 'webpage_feture', classifier: '', file: '/var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/target/webpage_feture.war', type: 'war']], credentialsId: 'c09c28f2-d765-40ed-a993-0e7c14c5f812', groupId: 'sample_project', nexusUrl: '54.212.0.252:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'nexus_rel_new', version: 'snap'			  }
+		      nexusArtifactUploader artifacts: [
+			   [
+			     artifactId: 'webpage_feture',
+				 classifier: '',
+				 file: '/var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/target/webpage_feture.war',
+				 type: 'war'
+			   ]
+			], 
+			   credentialsId: 'Nexus3',
+			   groupId: 'sample_project',
+			   nexusUrl: '54.212.0.252',
+			   nexusVersion: 'nexus3',
+			   protocol: 'http',
+			   repository: 'nexus_rel_new',
+			   version: 'snap'
 			  }
+			  }
+	  stage("Deploy to tomcat"){
+	     steps{
+		     sshagent(['2374b515-dee6-4861-bcd6-c9c13f69d915']) {
+			 sh scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/target/webpage_feture.war ec2-user@54.190.63.119:/opt/apache-tomcat-9.0.78/webapps/'
+}
+}
+}
 	}
 }
 		
