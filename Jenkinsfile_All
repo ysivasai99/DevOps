@@ -26,8 +26,8 @@ pipeline{
 			], 
 			   credentialsId: 'Nexus3',
 			   groupId: 'sample_project',
-			   nexusUrl: '34.217.89.53',
-			   nexusVersion: 'nexus3',
+			   nexusUrl: '54.212.0.252',
+			   nexusVersion: 'Nexus3',
 			   protocol: 'http',
 			   repository: 'nexus_rel_new',
 			   version: 'snap'
@@ -36,7 +36,7 @@ pipeline{
 	  stage("Deploy to tomcat"){
 	     steps{
 		     sshagent(['2374b515-dee6-4861-bcd6-c9c13f69d915']) {
-			 sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/target/webpage_feture.war ec2-user@54.190.63.119:/opt/apache-tomcat-9.0.78/webapps/'
+			 sh scp -o 'StrictHostKeyChecking=no /var/lib/jenkins/workspace/Pipeline_GSTN/Maven/webpage_feture/target/webpage_feture.war ec2-user@54.190.63.119:/opt/apache-tomcat-9.0.78/webapps/'
 }
 	}
 }
