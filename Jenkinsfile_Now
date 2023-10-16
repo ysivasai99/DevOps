@@ -11,7 +11,7 @@ stages{
 }
      stage("Maven build"){
          steps{
-             sh 'mvn -f /var/lib/jenkins/workspace/MSNT_Pipeline/Maven/webpage_feture/pom.xml clean package'
+             sh "mvn -f /var/lib/jenkins/workspace/MSNT_Pipeline/Maven/webpage_feture/pom.xml clean package"
 }
 }
 }
