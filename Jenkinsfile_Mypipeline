@@ -6,4 +6,5 @@ pipeline{
         git branch: 'main', credentialsId: '70bc1ec1-8c14-41a9-ae7c-d8d219cb48b3', url: 'https://github.com/ysivasai99/DevOps.git'
       }
     }
-    
+    }
+}
