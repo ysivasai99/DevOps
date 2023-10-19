@@ -13,6 +13,12 @@ pipeline{
       steps{
         sh "mvn -f /var/lib/jenkins/workspace/Maven/Maven/webpage_feture/pom.xml clean sonar:sonar package"
 }
+}  
+    stage("Nexus uploader"){
+      steps{
+        nexusArtifactUploader artifacts: [[artifactId: 'webpage_feture', classifier: '', file: '/var/lib/jenkins/workspace/MyPipeline/Maven/webpage_feture/target/webpage_feture.war', type: 'war']], credentialsId: '01970ed6-4213-40dc-89ab-2cd0405deb2a', groupId: 'sample_project', nexusUrl: '18.222.209.186:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Release_repo', version: 'snap'
 }
+}
+
     }
 }
