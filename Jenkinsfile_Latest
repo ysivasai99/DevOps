@@ -6,4 +6,8 @@ pipeline{
 stages {
   stage("Git clone"){
      steps{
-        
+        git branch: 'main', credentialsId: 'f1b9e2c2-3f57-414a-9575-f05c8de37b2a', url: 'https://github.com/ysivasai99/DevOps.git'
+}
+}
+}
+}
