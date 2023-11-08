@@ -16,7 +16,7 @@ stages {
 }
 stage("Nexus"){
     steps{
-       nexusArtifactUploader artifacts: [[artifactId: 'webpage_feture', classifier: '', file: '/var/lib/jenkins/workspace/LatestPipeline/Maven/webpage_feture/target/webpage_feture.war', type: 'war']], credentialsId: '265a47dc-df7f-471c-a19c-dc69ff3f453a', groupId: 'sample_project', nexusUrl: '54.90.34.204:8081/', nexusVersion: 'nexus3', protocol: 'http', repository: 'myrepo_rel', version: 'snap'
+            nexusArtifactUploader artifacts: [[artifactId: 'webpage_feture', classifier: '', file: '/var/lib/jenkins/workspace/LatestPipeline/Maven/webpage_feture/target/webpage_feture.war', type: 'war']], credentialsId: '265a47dc-df7f-471c-a19c-dc69ff3f453a', groupId: 'sample_project', nexusUrl: '54.90.34.204:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'myrepo_rel', version: 'snap'
 }
 }
 }
