@@ -6,17 +6,7 @@ pipeline{
 stages {
   stage("Git clone"){
      steps{
-        git branch: 'main', credentialsId: 'f1b9e2c2-3f57-414a-9575-f05c8de37b2a', url: 'https://github.com/ysivasai99/DevOps.git'
-}
-}
-  stage("Maven build"){
-     steps{
-        sh "mvn -f /var/lib/jenkins/workspace/LatestPipeline/Maven/webpage_feture/pom.xml clean sonar:sonar package"
-}
-}
-stage("Nexus"){
-    steps{
-            nexusArtifactUploader artifacts: [[artifactId: 'webpage_feture', classifier: '', file: '/var/lib/jenkins/workspace/LatestPipeline/Maven/webpage_feture/target/webpage_feture.war', type: 'war']], credentialsId: '265a47dc-df7f-471c-a19c-dc69ff3f453a', groupId: 'sample_project', nexusUrl: '54.90.34.204:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'myrepo_rel', version: 'snap'
+        git branch: 'main', credentialsId: '4bee5f5f-89f8-46dd-90cb-4f7934bbeb25', url: 'https://github.com/ysivasai99/DevOps.git'
 }
 }
 }
