@@ -10,8 +10,9 @@ stages {
 }
 }
 stage("Maven Build"){
-  sh "mvn -f /var/lib/jenkins/workspace/SaiPipeline/Maven/webpage_feture/pom.xml clean package"
-
+  steps{
+         sh "mvn -f /var/lib/jenkins/workspace/SaiPipeline/Maven/webpage_feture/pom.xml clean package"
+}
 }
 }
 }
