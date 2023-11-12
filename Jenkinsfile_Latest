@@ -22,7 +22,7 @@ stage("NExus"){
 stage("ssh agent"){
     steps{
        sshagent(['a6d9e063-462f-4966-ac16-25795daca1a6']) {
-       sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/SaiPipeline/Maven/webpage_feture/target/webpage_feture.war ec2-user@3.81.142.125:/opt/apache-tomcat-9.0.82/webappsapache-tomcat-9.0.78/webapps/'
+       sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/SaiPipeline/Maven/webpage_feture/target/webpage_feture.war ec2-user@3.81.142.125:/opt/apache-tomcat-9.0.82/webapps'
 }
 }
 }
