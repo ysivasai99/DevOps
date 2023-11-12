@@ -19,5 +19,10 @@ stage("NExus"){
         nexusArtifactUploader artifacts: [[artifactId: 'webpage_feture', classifier: '', file: '/var/lib/jenkins/workspace/SaiPipeline/Maven/webpage_feture/target/webpage_feture.war', type: 'war']], credentialsId: 'nexus3', groupId: 'sample_project', nexusUrl: '3.92.196.111:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Release_repo', version: 'snap'
 }
 }
+stage("ssh agent"){
+    steps{
+       sshagent(['a6d9e063-462f-4966-ac16-25795daca1a6']) {
+       sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/SaiPipeline/Maven/webpage_feture/target/webpage_feture.war ec2-user@3.81.142.125:/apache-tomcat-9.0.78/webapps/
+}
 }
 }
