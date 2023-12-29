@@ -1,1 +1,16 @@
-
+pipeline{
+  agent any
+       environment {
+           PATH = "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven/bin:$PATH"
+}
+stages {
+  stage("Git clone") {
+    steps {
+            git branch: 'main', credentialsId: 'c1ba2d6c-6d97-4680-85ae-3798fa7f9b18', url: 'https://github.com/ysivasai99/DevOps.git'
+}
+}
+  stage("Maven and Sonar") {
+    steps {
+            sh "mvn -f /var/lib/jenkins/workspace/Maven_Job/Maven/webpage_feture/pom.xml clean package"
+}
+}
