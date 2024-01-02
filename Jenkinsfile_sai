@@ -11,7 +11,7 @@ stages {
 }
   stage("Maven and Sonar") {
     steps {
-            sh "mvn -f /var/lib/jenkins/workspace/Maven_Job/Maven/webpage_feture/pom.xml clean sonar:sonar package"
+            sh "mvn -f /var/lib/jenkins/workspace/Alljobs_pipeline/Maven/webpage_feture/pom.xml clean sonar:sonar package"
 }
 }
 }
