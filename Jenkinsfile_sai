@@ -22,7 +22,7 @@ stages {
 stage("Tomcat") {
   steps {
           sshagent(['9b6dd252-f199-47a2-8477-2a0537a1edbb']) {
-              sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Alljobs_pipeline/Maven/webpage_feture/target/webpage_feture.war  ec2-user@18.218.100.167:/apache-tomcat-9.0.78/webapps/'
+              sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Alljobs_pipeline/Maven/webpage_feture/target/webpage_feture.war  ec2-user@18.218.100.167:/apache-tomcat-9.0.84/webapps/'
 
  
 }
